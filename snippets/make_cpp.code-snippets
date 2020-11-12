@@ -1,12 +1,12 @@
 {
 	"Boilerplate": {
-		"prefix": "!make_c",
+		"prefix": "!make_cpp",
 		"body": [
 			"NAME=${1:$WORKSPACE_NAME}\n",
-			"CC=${2:gcc}",
+			"CC=${2:clang++}",
 			"FLAGS=${3:-Wall -Werror -Wextra}",
 			"DEBUG_FLAGS=${4:-g fsanitize=address}",
-			"SRC=${5:*.c}",
+			"SRC=${5:*.cpp}",
 			"LIBS=${6:}",
 			"OBJ=",
 			"RM =rm -rf\n",
@@ -24,6 +24,6 @@
 			"\t$(CC) $(FLAGS) $(DEBUG_FLAGS) $(LIBS) $(SRC) -o $(NAME)",
 			"$0"
 		],
-		"description": "Create an boilerplate C Makefile"
+		"description": "Create an boilerplate C++ Makefile"
 	}
 }

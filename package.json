@@ -20,6 +20,18 @@
 			{
 				"language": "makefile",
 				"path": "./snippets/make_c.code-snippets"
+			},
+			{
+				"language": "makefile",
+				"path": "./snippets/make_nasm.code-snippets"
+			},
+			{
+				"language": "makefile",
+				"path": "./snippets/make_cpp.code-snippets"
+			},
+			{
+				"language": "makefile",
+				"path": "./snippets/make_cs.code-snippets"
 			}
 		]
 	}

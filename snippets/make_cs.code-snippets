@@ -1,0 +1,24 @@
+{
+	"Boilerplate": {
+		"prefix": "!make_cs",
+		"body": [
+			"NAME=${1:$WORKSPACE_NAME}\n",
+			"CC=${2:mcs}",
+			"FLAGS=${3:}",
+			"SRC=${4:*.cs}",
+			"LIBS=${5:}",
+			"RM =rm -rf\n",
+			"all: $(NAME)\n",
+			"$(NAME): $(SRC)",
+			"\t$(CC) $(FLAGS) $(LIBS) $(SRC) -out:$(NAME)\n",
+			"clean:\n",
+			"fclean: clean",
+			"\t$(RM) $(NAME)\n",
+			"re: fclean all\n",
+			"run: re",
+			"\t./$(NAME)\n",
+			"$0"
+		],
+		"description": "Create an boilerplate C# Makefile"
+	}
+}
