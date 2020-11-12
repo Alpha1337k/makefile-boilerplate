@@ -1,0 +1,28 @@
+{
+	"Boilerplate": {
+		"prefix": "!make_c",
+		"body": [
+			"NAME=${1:$WORKSPACE_NAME}\n",
+			"CC=${2:gcc}",
+			"FLAGS=${3:-Wall -Werror -Wextra}",
+			"SRC=${4:*.c}",
+			"LIBS=${5:}",
+			"OBJ=",
+			"RM =rm -rf\n",
+			"all: $(NAME)\n",
+			"$(NAME): $(SRC)",
+			"\t$(CC) $(FLAGS) $(SRC) -o $(NAME)\n",
+			"clean:",
+			"\t$(RM) $(OBJ)\n",
+			"fclean: clean",
+			"\t$(RM) $(NAME)\n",
+			"re: fclean all\n",
+			"run: re",
+			"\t./$(NAME)\n",
+			"debug: fclean",
+			"\t$(CC) $(FLAGS) $(DEBUG_FLAGS) $(LIBS) $(SRC) -o $(NAME)",
+			"$0"
+		],
+		"description": "Create an boilerplate C Makefile"
+	}
+}

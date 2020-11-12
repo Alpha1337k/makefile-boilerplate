@@ -1,20 +1,26 @@
 {
-    "name": "makefile-boilerplate",
-    "displayName": "Makefile boilerplate",
-    "description": "Create an boilerplate Makefile",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.51.0"
-    },
-    "categories": [
-        "Snippets"
-    ],
-    "contributes": {
-        "snippets": [
-            {
-                "language": "makefile",
-                "path": "./snippets/snippets.code-snippets"
-            }
-        ]
-    }
+	"name": "makefile-boilerplate",
+	"displayName": "Makefile boilerplate",
+	"description": "Create an boilerplate Makefile",
+	"version": "0.0.1",
+	"publisher": "Alpha1337k",
+	"icon": "logo.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Alpha1337k/makefile-boilerplate.git"
+	},
+	"engines": {
+		"vscode": "^1.51.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "makefile",
+				"path": "./snippets/make_c.code-snippets"
+			}
+		]
+	}
 }
