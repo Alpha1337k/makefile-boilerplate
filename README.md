@@ -1,15 +1,14 @@
 # makefile-boilerplate
 
-This is the README for your extension "makefile-boilerplate". After writing up a brief description, we recommend including the following sections.
+Tired of repetative Makefile creation? Fear no more! this extention eases your pain! 
 
 ## Features
 
-Creates an boiletplate Makefile using VSCode snippets. Currently supports just an C boilerplate.
-
+Creates an boiletplate Makefile using VSCode snippets. More snippets will be added, but feel free to help.
 
 ## Usage
 
-* `!gcc`: creates an C boilerplate function
+* `!make_c`: creates an C boilerplate function
 
 -----------------------------------------------------------------------------------------------------------
 
