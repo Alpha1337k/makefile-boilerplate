@@ -9,6 +9,10 @@ Creates an boilerplate Makefile using VSCode snippets. More snippets will be add
 ## Usage
 
 * `!make_c`: creates an C boilerplate function
+* `!make_cpp`: creates an C++ boilerplate function
+* `!make_cs`: creates an C# boilerplate function
+* `!make_nasm`: creates an Assembly boilerplate function
+
 
 -----------------------------------------------------------------------------------------------------------
 
