@@ -5,7 +5,7 @@
 			"NAME=${1:$WORKSPACE_NAME}\n",
 			"CC=${2:clang++}",
 			"FLAGS=${3:-Wall -Werror -Wextra}",
-			"DEBUG_FLAGS=${4:-g fsanitize=address}",
+			"DEBUG_FLAGS=${4:-g -fsanitize=address}",
 			"SRC=${5:*.cpp}",
 			"LIBS=${6:}",
 			"OBJ=",
