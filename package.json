@@ -1,38 +1,50 @@
 {
-	"name": "makefile-boilerplate",
-	"displayName": "Makefile boilerplate",
-	"description": "Create an boilerplate Makefile",
-	"version": "0.1.1",
-	"publisher": "Alpha1337k",
-	"icon": "logo.png",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Alpha1337k/makefile-boilerplate.git"
-	},
-	"engines": {
-		"vscode": "^1.51.0"
-	},
-	"categories": [
-		"Snippets"
-	],
-	"contributes": {
-		"snippets": [
-			{
-				"language": "makefile",
-				"path": "./snippets/make_c.code-snippets"
-			},
-			{
-				"language": "makefile",
-				"path": "./snippets/make_nasm.code-snippets"
-			},
-			{
-				"language": "makefile",
-				"path": "./snippets/make_cpp.code-snippets"
-			},
-			{
-				"language": "makefile",
-				"path": "./snippets/make_cs.code-snippets"
-			}
-		]
-	}
+  "name": "makefile-boilerplate",
+  "displayName": "Makefile boilerplate",
+  "description": "Create an boilerplate Makefile",
+  "version": "0.1.9",
+  "publisher": "Alpha1337k",
+  "icon": "logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alpha1337k/makefile-boilerplate.git"
+  },
+  "engines": {
+    "vscode": "^1.51.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "makefile",
+        "path": "./snippets/make_c.code-snippets"
+      },
+      {
+        "language": "makefile",
+        "path": "./snippets/make_nasm.code-snippets"
+      },
+      {
+        "language": "makefile",
+        "path": "./snippets/make_cpp.code-snippets"
+      },
+      {
+        "language": "makefile",
+        "path": "./snippets/make_cs.code-snippets"
+      },
+      {
+        "path": "./snippets/make_docker_image.code-snippets",
+        "language": "makefile"
+      },
+      {
+        "path": "./snippets/make_docker-compose.code-snippets",
+        "language": "makefile"
+      },
+      {
+        "path": "./snippets/make_helm_charts.code-snippets",
+        "language": "makefile"
+      }
+    ]
+  }
 }

@@ -1,0 +1,38 @@
+{
+	"Boilerplate": {
+		"prefix": "!make_docker-compose",
+		"body": [
+			"ifeq ($(OS),Windows_NT)",
+			"\tSHELL := pwsh.exe",
+			"else",
+			"\tSHELL := pwsh",
+			"endif\n",
+			".SHELLFLAGS := -NoProfile -Command ",
+			"CORE_SERVICES := YourServices FromDockerCompose",
+			"ALL_SERVICES := \\${CORE_SERVICES} \n",
+			"COMPOSE_ALL_FILES := \\${CORE_SERVICES_FILES}",
+			"CORE_SERVICES_FILES := -f docker-compose.yml\n",
+			"# --------------------------\n",
+			"all: down core\n",
+			"build:",
+			"\t@docker-compose \\${COMPOSE_ALL_FILES} up -d --build \\${ALL_SERVICES}\n",
+			"core:",
+			"\t@docker-compose \\${COMPOSE_CORE_FILES} up -d --build \\${CORE_SERVICES}\n",
+			"down:",
+			"\t@docker-compose \\${COMPOSE_ALL_FILES} down\n",
+			"stop:",
+			"\t@docker-compose \\${COMPOSE_ALL_FILES} stop \\${ALL_SERVICES}\n",
+			"restart:",
+			"\t@docker-compose \\${COMPOSE_ALL_FILES} restart \\${ALL_SERVICES}\n",
+			"rm:",
+			"\t@docker-compose \\$(COMPOSE_ALL_FILES) rm -f \\${ALL_SERVICES}\n",
+			"logs:",
+			"\t@docker-compose \\$(COMPOSE_ALL_FILES) logs --follow --tail=1000 \\${ALL_SERVICES}\n",
+			"images:",
+			"\t@docker-compose \\$(COMPOSE_ALL_FILES) images \\${ALL_SERVICES}\n",
+			"clean: ## Remove all Containers and Delete Volume Data",
+			"\t@docker-compose \\${COMPOSE_ALL_FILES} down -v"
+		],
+		"description": "Create an boilerplate docker-compose Makefile"
+	}
+}

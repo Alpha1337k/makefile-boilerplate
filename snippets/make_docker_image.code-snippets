@@ -1,0 +1,32 @@
+{
+	"Boilerplate": {
+		"prefix": "!make_docker_image",
+		"body": [
+			"ifeq ($(OS),Windows_NT)",
+			"\tSHELL := pwsh.exe",
+			"else",
+			"\tSHELL := pwsh",
+			"endif\n",
+			".SHELLFLAGS := -NoProfile -Command\n",
+			"REGISTRY_NAME := ",
+			"REPOSITORY_NAME := DefaultRepo/",
+			"IMAGE_NAME := MyDockerImage",
+			"TAG := :latest\n",
+			"# Run Options",
+			"RUN_PORTS := -p 80:80\n",
+			"PLATFORMS := linux/amd64,linux/arm64,linux/arm/v7\n",
+			"all: build\n",
+			"build:",
+			"\tdocker build -t $(REGISTRY_NAME)$(REPOSITORY_NAME)$(IMAGE_NAME)$(TAG) .\n",
+			"build_multiarch:",
+			"\tdocker buildx build -t $(REGISTRY_NAME)$(REPOSITORY_NAME)$(IMAGE_NAME)$(TAG) --platform $(PLATFORMS) .\n",
+			"run:",
+			"\tdocker run -d $(RUN_PORTS) $(REGISTRY_NAME)$(REPOSITORY_NAME)$(IMAGE_NAME)$(TAG)\n",
+			"package:",
+			"\t$$PackageFileName = \"$$(\"$(IMAGE_NAME)\" -replace \"/\",\"_\").tar\"; docker save $(REGISTRY_NAME)$(REPOSITORY_NAME)$(IMAGE_NAME)$(TAG) -o $$PackageFileName\n",
+			"publish:",
+			"\tdocker login; docker push $(REGISTRY_NAME)$(REPOSITORY_NAME)$(IMAGE_NAME)$(TAG); docker logout"
+		],
+		"description": "Create an boilerplate b_docker Makefile"
+	}
+}

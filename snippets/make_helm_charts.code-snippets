@@ -1,0 +1,30 @@
+{
+	"Boilerplate": {
+		"prefix": "!make_helm_charts",
+		"body": [
+			"ifeq ($(OS),Windows_NT)",
+			"\tSHELL := pwsh.exe",
+			"else",
+			"\tSHELL := pwsh",
+			"endif\n",
+			".SHELLFLAGS := -NoProfile -Command\n",
+			"HELM_NAME := myHelm",
+			"TAG := :latest",
+			"PLATFORMS := linux/amd64,linux/arm64,linux/arm/v7\n",
+			"all: build\n",
+			"up:",
+			"\t@helm upgrade --install $(HELM_NAME) $*\n",
+			"up_%:",
+			"\t@helm upgrade --install $(HELM_NAME) $* --set service.type=NodePort\n",
+			"down:",
+			"\t@helm uninstall $(HELM_NAME)\n",
+			"lint_%:",
+			"\thelm lint $*\n",
+			"generateIndex_%:",
+			"\thelm repo index $*\n",
+			"package_%:",
+			"\thelm package $*\n"
+		],
+		"description": "Create an boilerplate helm charts Makefile"
+	}
+}
