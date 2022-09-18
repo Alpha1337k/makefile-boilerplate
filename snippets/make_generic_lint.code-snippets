@@ -1,0 +1,17 @@
+{
+	"Boilerplate": {
+		"prefix": "!make_generic_lint",
+		"body": [
+			"lint: lint_mega\n",
+			"lint_mega:",
+			"\tdocker run -v \\$\\${PWD\\}:/tmp/lint oxsecurity/megalinter:v6",
+			"lint_goodcheck:",
+			"\tdocker run -t --rm -v \\$\\${PWD\\}:/work sider/goodcheck check",
+			"lint_goodcheck_test:",
+			"\tdocker run -t --rm -v \\$\\${PWD\\}:/work sider/goodcheck test",
+			"lint_makefile:",
+			"\tdocker run -v \\$\\${PWD\\}:/tmp/lint -e ENABLE_LINTERS=MAKEFILE_CHECKMAKE oxsecurity/megalinter:v6"
+		],
+		"description": "Some general linting tools"
+	}
+}
