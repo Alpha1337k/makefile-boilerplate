@@ -2,7 +2,7 @@
   "name": "makefile-boilerplate",
   "displayName": "Makefile boilerplate",
   "description": "Create an boilerplate Makefile",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "publisher": "Alpha1337k",
   "icon": "logo.png",
   "repository": {

@@ -2,18 +2,11 @@
 	"Boilerplate": {
 		"prefix": "!make_docker-compose",
 		"body": [
-			"ifeq ($(OS),Windows_NT)",
-			"\tSHELL := pwsh.exe",
-			"else",
-			"\tSHELL := pwsh",
-			"endif\n",
-			".SHELLFLAGS := -NoProfile -Command ",
 			"CORE_SERVICES := YourServices FromDockerCompose",
 			"ALL_SERVICES := \\${CORE_SERVICES} \n",
 			"COMPOSE_ALL_FILES := \\${CORE_SERVICES_FILES}",
 			"CORE_SERVICES_FILES := -f docker-compose.yml\n",
 			"# --------------------------\n",
-			"all: down core\n",
 			"build:",
 			"\t@docker-compose \\${COMPOSE_ALL_FILES} up -d --build \\${ALL_SERVICES}\n",
 			"core:",
@@ -34,5 +27,31 @@
 			"\t@docker-compose \\${COMPOSE_ALL_FILES} down -v"
 		],
 		"description": "Create an boilerplate docker-compose Makefile"
+	}
+}{
+	"Boilerplate": {
+		"prefix": "!make_elixir",
+		"body": [
+			"setup:",
+			"\tmix local.hex --force --if-missing && mix local.rebar --force --if-missing",
+			"setup_postgres:",
+			"\tdocker run -d -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:14",
+			"\tdocker run -d -p 8080:8080 adminer:4",
+			"setup_db:",
+			"\t-mix ecto.create",
+			"\t-mix ecto.migrate",
+			"deps_outdated:",
+			"\tmix hex.outdated",
+			"deps_get: setup",
+			"\tmix deps.get",
+			"\tmix deps.compile",
+			"app_build: deps_get",
+			"\tmix compile",
+			"release: build",
+			"\techo y | mix release.clean",
+			"app_run:",
+			"\tmix phx.server"
+		],
+		"description": "Some targets to help build/run elixir projects"
 	}
 }

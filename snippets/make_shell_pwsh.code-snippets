@@ -1,0 +1,14 @@
+{
+	"Boilerplate": {
+		"prefix": "!make_shell_pwsh",
+		"body": [
+			"ifeq ($(OS),Windows_NT)",
+			"\tSHELL := pwsh.exe",
+			"else",
+			"\tSHELL := pwsh",
+			"endif\n",
+			".SHELLFLAGS := -NoProfile -Command\n"
+		],
+		"description": "Sets the default shell for this makefile to pwsh core"
+	}
+}
